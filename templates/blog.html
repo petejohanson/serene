@@ -23,7 +23,7 @@
     <div class="title">{{ category }}</div>
     <div class="post-list">
         {% for post in posts | slice(end=section.extra.show_post_num) -%}
-        <a class="post" href="{{ post.permalink }}">
+        <a class="post" href="{{ post.path | safe }}">
             <span>{{ post.title }}</span>
             <span class="date">{{ post.date | date}}</span>
         </a>
@@ -31,7 +31,7 @@
         {% if posts | length > section.extra.show_post_num -%}
         <div class="posts-{{category}} hidden">
             {% for post in posts | slice(start=section.extra.show_post_num) -%}
-            <a class="post" href="{{ post.permalink }}">
+            <a class="post" href="{{ post.path | safe }}">
                 <span>{{ post.title }}</span>
                 <span class="date">{{ post.date | date }}</span>
             </a>
